@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepository memberRepository;
+    private MemberRepository memberRepository;
     private DiscountPolicy discountPolicy;
 
     @Autowired
@@ -20,6 +20,12 @@ public class OrderServiceImpl implements OrderService {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+    /*@Autowired //일반 메소드 주입(외부 주입 방식 중에 필드주입 생성자주입 세터주입 메서드 주입중에 메서드 주입을 사용했다.)
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }*/
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
