@@ -16,7 +16,6 @@ public class MemberServiceTest {
     }
 
     @Test
-
     void join() {
         //given
         final Member member = new Member(1L, "memberA", Grade.VIP);
